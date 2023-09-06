@@ -24,13 +24,13 @@ class LoginScreen extends StatelessWidget {
         child: Center(
           child: ListView(
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-            padding: const EdgeInsets.only(top: 44.0),
+            padding: const EdgeInsets.only(top: 180.0),
             children: [
               const SizedBox(
                 height: 200,
                 child: Image(
                   image: AssetImage(
-                    'assets/fooderlich_assets/rw_logo.png',
+                    'assets/foodsocial_assets/rw_logo.png',
                   ),
                 ),
               ),
