@@ -6,8 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'foodsocial_theme.dart';
 import 'models/models.dart';
-import 'screens/screens.dart';
-// TODO: Import app_router
+import 'navigation/app_router.dart';
 
 
 void main() async {
@@ -32,7 +31,12 @@ class FoodSocial extends StatefulWidget {
 class FoodSocialState extends State<FoodSocial> {
   late final _groceryManager = GroceryManager();
   late final _profileManager = ProfileManager();
-  // TODO: Initialize AppRouter.
+  // Initialize AppRouter.
+  late final _appRouter = AppRouter(
+    widget.appStateManager,
+    _profileManager,
+    _groceryManager,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -57,11 +61,14 @@ class FoodSocialState extends State<FoodSocial> {
             theme = FoodSocialTheme.light();
           }
 
-          // TODO: Replace with Router.
-          return MaterialApp(
+          // Use Router.
+          final router = _appRouter.router;
+          return MaterialApp.router(
             theme: theme,
             title: 'FoodSocial',
-            home: const LoginScreen(),
+            routerDelegate: router.routerDelegate,
+            routeInformationParser: router.routeInformationParser,
+            routeInformationProvider: router.routeInformationProvider,
           );
         },
       ),
