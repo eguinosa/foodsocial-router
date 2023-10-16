@@ -3,6 +3,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:provider/provider.dart';
+
+import '../models/models.dart';
 
 
 class OnboardingScreen extends StatefulWidget {
@@ -44,7 +47,8 @@ class OnboardingScreenState extends State<OnboardingScreen> {
         MaterialButton(
           child: const Text('Skip'),
           onPressed: () {
-            // TODO: Initiate onboarding.
+            // Initiate onboarding.
+            Provider.of<AppStateManager>(context, listen: false).onboarded();
           },
         ),
       ],
@@ -64,7 +68,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
           'Cook with step by step instructions!',
         ),
         onboardPageView(
-          const AssetImage('assets/fooderlich_assets/list.png'),
+          const AssetImage('assets/foodsocial_assets/list.png'),
           "Keep track of what you need to buy.",
         ),
       ],
