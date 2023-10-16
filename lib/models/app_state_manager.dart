@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'models.dart';
 
 
-class FoodsocialTab {
+class FoodSocialTab {
   static const int explore = 0;
   static const int recipes = 1;
   static const int toBuy = 2;
@@ -21,7 +21,7 @@ class AppStateManager extends ChangeNotifier {
   // Checks to see if the user has completed onboarding.
   bool _onboardingComplete = false;
   // Records the current tab the user is on.
-  int _selectedTab = FoodsocialTab.explore;
+  int _selectedTab = FoodSocialTab.explore;
   // Stores user state properties on platform specific file system.
   final _appCache = AppCache();
 
@@ -56,7 +56,7 @@ class AppStateManager extends ChangeNotifier {
   }
 
   void goToRecipes() {
-    _selectedTab = FoodsocialTab.recipes;
+    _selectedTab = FoodSocialTab.recipes;
     notifyListeners();
   }
 
