@@ -2,6 +2,7 @@
 // 2023
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../components/grocery_tile.dart';
 import '../models/models.dart';
@@ -53,7 +54,17 @@ class GroceryListScreen extends StatelessWidget {
                 },
               ),
               onTap: () {
-                // TODO: Navigate to grocery item.
+                // Navigate to grocery item.
+                // 1
+                final itemId = manager.getItemId(index);
+                // 2
+                context.goNamed(
+                  'item',
+                  params: {
+                    'tab': '${FoodSocialTab.toBuy}',
+                    'id': itemId,
+                  },
+                );
               },
             ),
           );
