@@ -2,6 +2,9 @@
 // 2023
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import '../models/models.dart';
 
 
 class EmptyGroceryScreen extends StatelessWidget {
@@ -38,10 +41,16 @@ class EmptyGroceryScreen extends StatelessWidget {
               ),
               color: Colors.green,
               onPressed: () {
-                // TODO: Go to Recipes Tab.
+                // Go to Recipes Tab.
+                context.goNamed(
+                  'home',
+                  params: {
+                    'tab': '${FoodSocialTab.recipes}',
+                  },
+                );
               },
               child: const Text('Browse Recipes'),
-            )
+            ),
           ],
         ),
       ),
