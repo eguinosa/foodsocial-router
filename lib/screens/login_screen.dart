@@ -2,6 +2,9 @@
 // 2023
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../models/models.dart';
 
 
 class LoginScreen extends StatelessWidget {
@@ -56,7 +59,10 @@ class LoginScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.0),
         ),
         onPressed: () async {
-          // TODO: Initiate Login.
+          // Initiate Login.
+          Provider.of<AppStateManager>(context, listen: false).login(
+            'mockUsername', 'mockPassword'
+          );
         },
         child: const Text(
           'Login',
