@@ -2,10 +2,14 @@
 // 2023
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:go_router/go_router.dart';
 
+import '../models/models.dart';
 import 'explore_screen.dart';
 import 'recipes_screen.dart';
 import 'grocery_screen.dart';
+
 
 
 class Home extends StatefulWidget {
@@ -46,7 +50,12 @@ class HomeState extends State<Home> {
         selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
         currentIndex: widget.currentTab,
         onTap: (index) {
-          // TODO: Update user's selected tab.
+          // Update user's selected tab.
+          Provider.of<AppStateManager>(context, listen: false).goToTab(index);
+          context.goNamed(
+            'home',
+            params: {'tab': '$index'},
+          );
         },
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
